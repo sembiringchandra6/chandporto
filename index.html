@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Chandra Portofolio</title>
+
+<style>
+ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+
+body { background: radial-gradient(circle at 20% 30%, rgb(0, 0, 0), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 112, 112, 0.5), transparent 25%),
+                #4f0303;
+    color: #eaeaea;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* HERO */
+.hero-info {
+    position: absolute;
+    left: 80px;
+    bottom: 120px;
+
+    display: flex;
+    flex-direction: column; /* INI YANG BIKIN KE BAWAH */
+
+    gap: 12px;
+    z-index: 3;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ccc;
+}
+.info-item:hover {
+     color: white;
+    transform: translateX(5px);
+    transition: 0.3s;
+}
+
+/* TEXT BESAR */
+.big-text {
+    position: absolute;
+    font-size: 120px;
+    font-weight: 800;
+    color: #d6cbb5;
+    letter-spacing: 5px;
+    
+     opacity: 0;
+    animation: fadeZoom 1.5s ease forwards;
+}
+@keyframes fadeZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* MASK TEXT */
+.mask-text {
+     text-shadow: 0 0 20px rgba(255,255,255,0.2);
+     color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    position: absolute;
+    font-size: 120px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    z-index: 2;
+    background: url("foto-back.png") center/cover no-repeat;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* TEXT KECIL */
+.small-text {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    color: #888;
+    z-index: 3;
+}
+
+/* NAMA */
+.name {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    color: #888;
+}
+
+/* FOTO */
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+    animation: slideUp 2s ease forwards;
+}
+
+/* SECTION */
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0), transparent 70%);
+
+}
+
+/* BOX */
+.box {
+    max-width: 800px;
+    text-align: center;
+    animation: fadeUp 2s ease;
+}
+
+
+/* ANIMASI SLIDE UP*/
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SKILL */
+.skill {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.bar {
+    background: #222;
+    border-radius: 5px;
+}
+
+.fill {
+    height: 10px;
+    background: #fff;
+}
+
+/* LIST */
+ul {
+    text-align: left;
+    color: #aaa;
+}
+/* ANIMASI SCROLL */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.custom-name span {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 700;
+    color: #d6cbb5;
+}
+
+/* ANIMASI NAMA (TIDAK HILANG) */
+.custom-name span {
+    position: absolute;
+    font-size: 60px;
+    font-weight: 700;
+    color: #d6cbb5;
+    opacity: 0;
+}
+
+/* posisi + animasi */
+.nama-kiri {
+    left: 150px;
+    top: 220px;
+    animation: slideLeft 1.2s ease forwards;
+}
+
+.nama-kanan-atas {
+    right: 150px;
+    top: 220px;
+    animation: slideRight 1.2s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.nama-kanan-bawah {
+    right: 60px;
+    top: 450px;
+    animation: slideUp 0.8s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/* KEYFRAMES */
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+.hero-info {
+    position: absolute;
+    left: 80px;
+    bottom: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 🔥 BIAR LURUS */
+    gap: 12px;
+}
+.info-item i {
+    width: 25px;        /* 🔥 ini kunci */
+    text-align: center;
+}
+.info-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: muncul 1s ease forwards;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.info-anim:nth-child(1) { animation-delay: 0.5s; }
+.info-anim:nth-child(2) { animation-delay: 1s; }
+.info-anim:nth-child(3) { animation-delay: 1.5s; }
+.info-anim:nth-child(4) { animation-delay: 2s; }
+
+.title {
+    position: absolute;
+    left: 80px;
+    top: 380px; /* bebas atur */
+    color: #ccc;
+}
+.info-title {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: muncul 1s ease forwards;
+}
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#about {
+    position: relative;
+    min-height: 100vh
+    
+}
+#about p{
+    position: relative;
+    left: 250px
+    margin-bottom: 50px;
+    line-height:1.8;
+    text-align: justify;
+}
+#about {
+    position: relative;
+    padding-bottom: 100px;
+}
+.line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: white;
+    overflow: hidden;
+}
+.line.top {
+    top: 100px;   /* ubah sesuai selera */
+}
+.line.bottom {
+    bottom: 180px; /* ubah sesuai selera */
+}
+.line::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(213, 174, 102, 0.74), transparent);
+    animation: lineMove 3s linear infinite;
+}
+@keyframes lineMove {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+#about.box{
+   margin-left: 30px;
+    max-width: 700px;
+}  
+#about{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-container{
+    display: flex;
+    flex-direction: row; /* 🔥 WAJIB */
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+}
+.about-text{
+   flex: 4;
+   max-width: 700px;
+}
+/*FOTO FRAME ARCH*/
+.about-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.arch-frame{
+     width: 280px;
+    height: 380px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 150px 150px 0 0;
+    padding: 15px;
+    position: relative;
+}
+/* INNER BORDER */
+.arch-frame::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 140px 140px 0 0;
+}
+
+/* FOTO */
+.arch-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 130px 130px 0 0;
+}
+/* AWAL (hidden state) */
+.fade-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* SAAT MUNCUL */
+.show.fade-left {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 1s ease;
+}
+
+.show.fade-right {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 1s ease;
+}
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    nav {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* HERO TEXT */
+    .big-text {
+        font-size: 50px;
+        text-align: center;
+        position: static;
+    }
+
+    .small-text,
+    .title {
+        position: static;
+        text-align: center;
+    }
+
+    /* NAMA */
+    .custom-name span {
+        position: static;
+        display: block;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    /* INFO (TELP, EMAIL, DLL) */
+    .hero-info {
+        position: static;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    /* FOTO HERO */
+    .hero-image img {
+        max-width: 250px;
+        display: block;
+        margin: 20px auto;
+    }
+
+    /* ABOUT */
+    .about-container {
+        flex-direction: column; /* 🔥 jadi ke bawah */
+        text-align: center;
+    }
+
+    #about p {
+        left: 0;
+        text-align: center;
+    }
+
+    /* FOTO ABOUT */
+    .arch-frame {
+        width: 220px;
+        height: 300px;
+    }
+
+    /* GARIS */
+    .line {
+        width: 90%;
+    }
+}
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<p class="small-text">Creative Portofolio</p>
+<h1 class="big-text">PORTOFOLIO</h1>
+<p class="custom-name">
+    <span class="nama-kiri">CHANDRA</span>
+    <span class="nama-kanan-atas">SETIADI</span>
+    <span class="nama-kanan-bawah">SEMBIRING</span>
+    </p>
+
+<p class="title">Undergraduate Engineering Manufacturing</p>
+<div class="hero-info">
+    <!--TELPON -->
+<a href="tel:0895321238514" class="info-item info-anim telp">
+    <i class="fas fa-phone"></i>
+    <span>0895321238514</span>
+    </a>
+    <!--LINKEDIN-->
+<a href="https://www.linkedin.com/in/chandra-setiadi-sembiring-309343288" target="_blank" class="info-item info-anim linkedin">
+    <i class="fab fa-linkedin"></i>
+    <span>https://www.linkedin.com/in/chandra-setiadi-sembiring-309343288</span>
+</a>
+    <!--EMAIL-->
+<a href="mailto:sembiringchandra6@gmail.com" class="info-item info-anim email">
+    <i class="fas fa-envelope"></i>
+    <span>sembiringchandra6@gmail.com</span>
+    </a>
+</div>
+
+<div class="hero-image">
+<img src=foto-back.png alt="foto-back">
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+<div class="about-container">
+    <!--GARIS-->
+    <div class="line top"></div>
+    <div class="line bottom"></div>
+    <div class="about-text fade-left hidden">
+<h1>About Me</h1>
+<p> Introduce me, Chandra Setiadi Sembiring, i am a 5th-semester student in the Manufacturing Engineering Technology program at the Faculty of Engineering, State University of Jakarta. 
+I have a strong interest in learning in the manufacturing production industry, operating lathe machines and CNC, as well as machine maintenance. 
+I have basic skills in drawing using Inventor CAM software and experience operating lathe machines and CNC router machines in machining practicum and CNC practicum. 
+I am also active in organizations and have experience in various committees that can train me in both soft skills and hard skills, such as event coordinator, HPD staff, etc. 
+I have a strong interest in the manufacturing production industry or machine maintenance. I also possess soft skills such as leadership, 
+public speaking, responsiveness, time efficiency, responsibility, and trustworthiness. And hard skills that I have include the ability to draw in software, 
+video and photo editing, as well as the ability to use a camera.</p>
+</div>
+
+<div class="about-image fade-right hidden">
+    <div class="arch-frame">
+<img src="foto-back.png" alt="foto">
+<div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="hidden">
+<div class="box">
+<h1>Education</h1>
+<ul>
+<li> Universitas Negeri Jakarta</li>
+<li> SMAN 8 TAMBUN SELATAN</li>
+</ul>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="hidden">
+<div class="box">
+<h1>Experience</h1>
+<ul>
+<li>Pengalaman kerja</li>
+PT SABRI AGRO INTERNATIONAL - INTERNSHIP
+WORK FROM HOME
+Oktober 2023 - Januari 2024 
+</li>Membuat dan merencanakan konten video reels promosi tentang keunggulan  dengan menggunakan software mobile seperti capcut dan vn
+Berkolaborasi dengan copywritter dalam menulis script untuk diubah menjadi audio
+Berhasil menyelesaikan 2-3 konten video reels dalam waktu 1 minggu
+CONTEN CREATOR
+</ul>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="hidden">
+<div class="box">
+<h1>Skills</h1>
+
+<div class="skill">
+<p>Video Editing</p>
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>Content Creation</p>
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+<div class="box">
+<h1>Contact</h1>
+<p>Email: sembiringchandra6@gmail.com</p>
+</div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
